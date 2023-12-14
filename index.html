@@ -8,16 +8,25 @@
                 border : 2px solid black;
                 position : absolute;
                 left : 50%;
-                top : 0px;
+                top : 4px;
                 transform : translate(-50%, 0%);
+            }
+
+            body {
+                overscroll-behavior : contain;
+            }
+
+            @font-face {
+                font-family : 'neodgm';
+                src : url('Font/neodgm.ttf')
             }
         </style>
     </head>
     <body>
-        <canvas id="Screen" width="320" height="640"></canvas>
+        <canvas id="Screen" width="320" height="600"></canvas>
         <script src="Script/Asset.js"></script>
         <script src="Script/UI.js"></script>
-        <script src="Script/Script/js"></script>
+        <script src="Script/Script.js"></script>
         <script src="Script/DataLevel.js"></script>
         <script src="Script/DataWorld.js"></script>
 
