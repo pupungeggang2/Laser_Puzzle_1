@@ -13,6 +13,7 @@ const UI = {
     },
 
     levelSelect : {
-        buttonBack : [260, 20, 40, 40]
+        buttonBack : [260, 20, 40, 40],
+        textLevelName : [160, 80],
     }
 }

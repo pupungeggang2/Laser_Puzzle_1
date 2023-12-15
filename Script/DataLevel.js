@@ -1,3 +1,7 @@
 const dataLevel = {
 
 }
+
+const dataLevelConnection = {
+    
+}

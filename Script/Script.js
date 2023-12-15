@@ -22,9 +22,16 @@ const dataLang = {
     },
 
     'WorldTitle' : {
-        0 : {
-            'en' : 'Beginning',
-            'kr' : '시작',
+        3000 : {
+            'en' : 'W0:Beginning',
+            'kr' : 'W0:시작',
         },
+    },
+
+    'LevelTitle' : {
+        1001 : {
+            'en' : 'Getting Started',
+            'kr' : '시작하기'
+        }
     }
 }

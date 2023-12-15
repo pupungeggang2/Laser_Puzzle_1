@@ -15,9 +15,15 @@ let mouseUpEnabled = true
 let mouseMoveEnabled = true
 let mouseDownEnabled = true
 
-let worldCurrent = 0
+let levelClearedNum = 0
+let worldCurrent = -1
+let levelCurrent = -1
 let selectedWorld = -1
 let selectedLevel = -1
+
+let animation = {
+
+}
 
 let sessionVar = {
 
