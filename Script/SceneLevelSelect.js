@@ -11,7 +11,8 @@ function displayLevelSelect() {
         context.fillText(`${dataLang['LevelTitle'][selectedLevel][langList[lang]]}`, UI.levelSelect.textLevelName[0], UI.levelSelect.textLevelName[1])
     }
 
-    context.drawImage(img.back, UI.levelSelect.buttonBack[0], UI.levelSelect.buttonBack[1], UI.levelSelect.buttonBack[2], UI.levelSelect.buttonBack[3])
+    context.drawImage(img.back, UI.levelSelect.buttonBack[0], UI.levelSelect.buttonBack[1])
+    context.drawImage(img.save, UI.levelSelect.buttonSave[0], UI.levelSelect.buttonSave[1])
 
     drawWorldComponent()
 }
@@ -26,8 +27,8 @@ function actionMoveLevelSelect(x, y, button) {
 
 function actionUpLevelSelect(x, y, button) {
     if (button === 0) {
-        if (state === '') {
-            if (pause === false) {
+        if (pause === false) {
+            if (state === '') {
                 if (pointInsideRectArray(x, y, UI.levelSelect.buttonBack)) {
                     scene = 'Title'
                     state = ''

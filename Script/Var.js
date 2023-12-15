@@ -28,3 +28,13 @@ let animation = {
 let sessionVar = {
 
 }
+
+let game = {
+    field : [],
+    hand : [],
+}
+
+let stateRecorded = [
+    'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null',
+    'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null',
+]

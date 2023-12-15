@@ -26,5 +26,7 @@ function loadData() {
 }
 
 function eraseData() {
-
+    localStorage.setItem(fileName, JSON.stringify(emptySave))
+    sessionVar = JSON.parse(localStorage.getItem(fileName))
+    levelClearedCount()
 }

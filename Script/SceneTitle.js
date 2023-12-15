@@ -27,8 +27,8 @@ function actionMoveTitle(x, y, button) {
 
 function actionUpTitle(x, y, button) {
     if (button === 0) {
-        if (state === '') {
-            if (pause === false) {
+        if (pause === false) {
+            if (state === '') {
                 if (pointInsideRectArray(x, y, UI.title.buttonStart)) {
                     scene = 'LevelSelect'
                     state = ''

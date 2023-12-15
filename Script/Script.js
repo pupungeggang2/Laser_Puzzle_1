@@ -21,6 +21,21 @@ const dataLang = {
         'kr' : '한국어'
     },
 
+    'Pause' : {
+        'en' : 'Paused',
+        'kr' : '일시정지'
+    },
+
+    'Resume' : {
+        'en' : 'Resume',
+        'kr' : '계속'
+    },
+
+    'Map' : {
+        'en' : 'Map',
+        'kr' : '레벨선택'
+    },
+
     'WorldTitle' : {
         3000 : {
             'en' : 'W0:Beginning',
@@ -33,5 +48,5 @@ const dataLang = {
             'en' : 'Getting Started',
             'kr' : '시작하기'
         }
-    }
+    },
 }
