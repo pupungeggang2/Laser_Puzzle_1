@@ -10,5 +10,9 @@ const UI = {
         textErase : [160, 360],
         buttonLang : [80, 440, 160, 80],
         textLang : [160, 480],
+    },
+
+    levelSelect : {
+        buttonBack : [260, 20, 40, 40]
     }
 }

@@ -13,6 +13,7 @@ function main() {
     window.addEventListener('touchmove', touchMove, false)
     window.addEventListener('touchend', touchEnd, false)
 
+    saveInit()
     imageLoad()
 
     gameFrameCurrent = Date.now()

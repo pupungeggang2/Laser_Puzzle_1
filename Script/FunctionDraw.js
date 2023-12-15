@@ -8,3 +8,7 @@ function drawSceneInit() {
 
     context.clearRect(0, 0, 320, 640)
 }
+
+function drawWorldComponent() {
+    
+}

@@ -19,5 +19,12 @@ const dataLang = {
     'TextLang' : {
         'en' : 'English',
         'kr' : '한국어'
+    },
+
+    'WorldTitle' : {
+        0 : {
+            'en' : 'Beginning',
+            'kr' : '시작',
+        },
     }
 }

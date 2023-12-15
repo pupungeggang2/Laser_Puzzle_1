@@ -29,7 +29,13 @@ function actionUpTitle(x, y, button) {
     if (button === 0) {
         if (state === '') {
             if (pause === false) {
-                if (pointInsideRectArray(x, y, UI.title.buttonLang)) {
+                if (pointInsideRectArray(x, y, UI.title.buttonStart)) {
+                    scene = 'LevelSelect'
+                    state = ''
+                    worldCurrent = 0
+                } else if (pointInsideRectArray(x, y, UI.title.buttonErase)) {
+                    eraseData()
+                } else if (pointInsideRectArray(x, y, UI.title.buttonLang)) {
                     lang = (lang + 1) % langList.length
                 }
             }
