@@ -30,11 +30,9 @@ let sessionVar = {
 }
 
 let game = {
-    field : [],
-    hand : [],
+    level : {
+        
+    }
 }
 
-let stateRecorded = [
-    'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null',
-    'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null',
-]
+let stateRecorded = []

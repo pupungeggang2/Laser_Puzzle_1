@@ -53,6 +53,9 @@ function drawWorldComponent() {
 
 function drawGameUpperBar() {
     context.drawImage(img.game.objective, UI.game.buttonObjective[0], UI.game.buttonObjective[1])
+    context.drawImage(img.game.undo, UI.game.buttonUndo[0], UI.game.buttonUndo[1])
+    context.drawImage(img.game.retry, UI.game.buttonRetry[0], UI.game.buttonRetry[1])
+    context.drawImage(img.game.help, UI.game.buttonHelp[0], UI.game.buttonHelp[1])
     context.drawImage(img.game.pause, UI.game.buttonPause[0], UI.game.buttonPause[1])
 }
 

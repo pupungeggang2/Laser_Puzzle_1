@@ -7,8 +7,11 @@ let img = {
     selectFrame : new Image(),
 
     game : {
-        pause : new Image(),
         objective : new Image(),
+        undo : new Image(),
+        retry : new Image(),
+        help : new Image(),
+        pause : new Image(),
 
         orbOff : new Image(),
         orbOn : new Image(),
@@ -20,8 +23,11 @@ let img = {
 }
 
 function imageLoad() {
-    img.game.pause.src = 'Image/Pause.png'
     img.game.objective.src = 'Image/Objective.png'
+    img.game.undo.src = 'Image/Undo.png'
+    img.game.retry.src = 'Image/Retry.png'
+    img.game.help.src = 'Image/Help.png'
+    img.game.pause.src = 'Image/Pause.png'
 
     img.back.src = 'Image/Back.png'
     img.save.src = 'Image/Save.png'

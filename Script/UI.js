@@ -21,6 +21,7 @@ const UI = {
     game : {
         buttonObjective : [0, 88, 64, 64],
         buttonUndo : [64, 88, 64, 64],
+        buttonRetry : [128, 88, 64, 64],
         buttonHelp : [192, 88, 64, 64],
         buttonPause : [256, 88, 64, 64],
 
