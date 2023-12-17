@@ -68,6 +68,8 @@ function actionUpLevelSelect(x, y, button) {
                                 scene = 'Game'
                                 state = ''
                                 levelCurrent = selectedLevel
+                                loadLevel()
+                                generateDrawobject()
                             } else {
                                 selectedLevel = tempSelected
                             }

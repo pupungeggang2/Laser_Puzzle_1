@@ -20,8 +20,9 @@ let worldCurrent = -1
 let levelCurrent = -1
 let selectedWorld = -1
 let selectedLevel = -1
+let picking = -1
 
-let animation = {
+let drawObject = {
 
 }
 

@@ -18,11 +18,11 @@ function levelClearedCount() {
 }
 
 function saveData() {
-
+    localStorage.setItem(fileName, JSON.stringify(fileName))
 }
 
 function loadData() {
-
+    sessionVar = JSON.parse(localStorage.getItem(fileName))
 }
 
 function eraseData() {

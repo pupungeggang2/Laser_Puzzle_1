@@ -60,13 +60,54 @@ function drawGameUpperBar() {
 }
 
 function drawGameBoard() {
+    let left = UI.game.boardCenter[0] - (game.level['Size'][1] - 2) * 32
+    let top = UI.game.boardCenter[1] - (game.level['Size'][0] - 2) * 32
+    let tileSize = 64
 
-}
+    // Drawing board tiles
+    for (let i = 1; i < game.level['Size'][0] - 1; i++) {
+        for (let j = 1; j < game.level['Size'][1] - 1; j++) {
+            context.drawImage(img.game.tileEmpty, left + (j - 1) * tileSize, top + (i - 1) * tileSize)
+        }
+    }
 
-function drawGameHand() {
+    // Drawing hand tiles
     for (let i = 0; i < 5; i++) {
         context.drawImage(img.game.tileEmpty, UI.game.hand[i][0], UI.game.hand[i][1])
     }
+
+    // Drawing Objects
+    context.font = '20px neodgm'
+    for (let i = 0; i < drawObject.length; i++) {
+        let thing = drawObject[i]
+
+        if (thing[0] === 'Power') {
+            context.drawImage(img.game.tilePower, thing[2][0], thing[2][1])
+            context.drawImage(img.game.orbOff, thing[2][0] + 24, thing[2][1])
+            context.drawImage(img.game.orbOff, thing[2][0] + 24, thing[2][1] + 48)
+            context.drawImage(img.game.orbOff, thing[2][0], thing[2][1] + 24)
+            context.drawImage(img.game.orbOff, thing[2][0] + 48, thing[2][1] + 24)
+
+            for (let j = 0; j < thing[3].length; j++) {
+                if (thing[3][j] === 'Right') {
+                    context.drawImage(img.game.orbOn, thing[2][0] + 48, thing[2][1] + 24)
+                } else if (thing[3][j] === 'Left') {
+                    context.drawImage(img.game.orbOn, thing[2][0], thing[2][1] + 24)
+                } if (thing[3][j] === 'Up') {
+                    context.drawImage(img.game.orbOn, thing[2][0] + 24, thing[2][1])
+                } else if (thing[3][j] === 'Down') {
+                    context.drawImage(img.game.orbOn, thing[2][0] + 24, thing[2][1] + 48)
+                }
+            }
+
+            context.fillText(`${thing[4]}`, thing[2][0] + 32, thing[2][1] + 24)
+            context.fillText(`${thing[5]}`, thing[2][0] + 32, thing[2][1] + 40)
+        } else if (thing[0] === 'Number') {
+            context.drawImage(img.game.tileEmpty, thing[2][0], thing[2][1])
+            context.fillText(`${thing[3]}`, thing[2][0] + 32, thing[2][1] + 32)
+        }
+    }
+    context.font = '32px neodgm'
 }
 
 function drawPause() {
@@ -80,4 +121,42 @@ function drawPause() {
     context.fillText(`${dataLang['Resume'][langList[lang]]}`, UI.pause.textResume[0], UI.pause.textResume[1])
     context.strokeRect(UI.pause.buttonMap[0], UI.pause.buttonMap[1], UI.pause.buttonMap[2], UI.pause.buttonMap[3])
     context.fillText(`${dataLang['Map'][langList[lang]]}`, UI.pause.textMap[0], UI.pause.textMap[1])
+}
+
+function generateDrawobject() {
+    let left = UI.game.boardCenter[0] - (game.level['Size'][1] - 2) * 32
+    let top = UI.game.boardCenter[1] - (game.level['Size'][0] - 2) * 32
+    let tileSize = 64
+
+    drawObject = []
+
+    for (i = 1; i < game.level['Size'][0] - 1; i++) {
+        for (j = 1; j < game.level['Size'][1] - 1; j++) {
+            let x = left + (j - 1) * tileSize
+            let y = top + (i - 1) * tileSize
+            let thing = game.level['Board'][i][j]
+
+            if (thing[0] === 'Power') {
+                let temp = ['Power', thing[1], [x, y], JSON.parse(JSON.stringify(thing[2])), thing[3], thing[4]]
+                drawObject.push(temp)
+            } else if (thing[0] === 'Number') {
+                let temp = ['Number', thing[1], [x, y], thing[2]]
+                drawObject.push(temp)
+            }
+        }
+    }
+
+    for (i = 0; i < 5; i++) {
+        let x = UI.game.hand[i][0]
+        let y = UI.game.hand[i][1]
+        let thing = game.level['Hand'][i]
+
+        if (thing[0] === 'Power') {
+            let temp = ['Power', thing[1], [x, y], JSON.parse(JSON.stringify(thing[2])), thing[3], thing[4]]
+            drawObject.push(temp)
+        } else if (thing[0] === 'Number') {
+            let temp = ['Number', thing[1], [x, y], thing[2]]
+            drawObject.push(temp)
+        }
+    }
 }

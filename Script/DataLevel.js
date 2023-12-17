@@ -1,18 +1,13 @@
 const dataLevel = {
     1001 : {
         'Size' : [4, 5],
-        'BoardFilled' : [
-            [1, 1, 1, 1, 1],
-            [1, 0, 0, 0, 1],
-            [1, 0, 0, 0, 1],
-            [1, 1, 1, 1, 1]
+        'Board' : [
+            [['Wall'], ['Wall'], ['Wall'], ['Wall'], ['Wall']],
+            [['Wall'], ['Power', false, ['Right'], 0, 6], ['Empty'], ['Empty'], ['Wall']],
+            [['Wall'], ['Power', false, ['Right'], 0, 3], ['Empty'], ['Empty'], ['Wall']],
+            [['Wall'], ['Wall'], ['Wall'], ['Wall'], ['Wall']],
         ],
-        'Power' : [
-            [[1, 1], [false, false, false, true], 6],
-            [[2, 1], [false, false, false, true], 6],
-        ],
-        'Thing' : [],
-        'Hand' : [],
+        'Hand' : [['Number', true, 5], ['Number', true, 3], ['Number', true, 1], ['Empty'], ['Empty']],
     }
 }
 
