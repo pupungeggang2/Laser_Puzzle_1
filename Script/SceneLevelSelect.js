@@ -32,6 +32,8 @@ function actionUpLevelSelect(x, y, button) {
                 if (pointInsideRectArray(x, y, UI.levelSelect.buttonBack)) {
                     scene = 'Title'
                     state = ''
+                } else if (pointInsideRectArray(x, y, UI.levelSelect.buttonSave)) {
+                    saveData()
                 }
 
                 let clicked = false
@@ -68,8 +70,9 @@ function actionUpLevelSelect(x, y, button) {
                                 scene = 'Game'
                                 state = ''
                                 levelCurrent = selectedLevel
-                                loadLevel()
-                                generateDrawObject()
+                                selectedLevel = -1
+                                selectWorld = -1
+                                gameInit()
                             } else {
                                 selectedLevel = tempSelected
                             }

@@ -10,7 +10,7 @@ function displayTitle() {
     context.strokeRect(UI.title.buttonStart[0], UI.title.buttonStart[1], UI.title.buttonStart[2], UI.title.buttonStart[3])
     context.fillText(dataLang['TextStart'][langList[lang]], UI.title.textStart[0], UI.title.textStart[1])
     context.fillText(`${levelClearedNum}/${levelList.length}`, UI.title.textData1[0], UI.title.textData1[1])
-    context.fillText(`${Math.floor(levelClearedNum / levelList.length)}%`, UI.title.textData2[0], UI.title.textData2[1]) 
+    context.fillText(`${Math.floor(levelClearedNum / levelList.length * 100)}%`, UI.title.textData2[0], UI.title.textData2[1]) 
     context.strokeRect(UI.title.buttonErase[0], UI.title.buttonErase[1], UI.title.buttonErase[2], UI.title.buttonErase[3])
     context.fillText(dataLang['TextErase'][langList[lang]], UI.title.textErase[0], UI.title.textErase[1])
     context.strokeRect(UI.title.buttonLang[0], UI.title.buttonLang[1], UI.title.buttonLang[2], UI.title.buttonLang[3])

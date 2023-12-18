@@ -39,5 +39,12 @@ const UI = {
         buttonResume : [80, 260, 160, 80],
         textMap : [160, 380],
         buttonMap : [80, 340, 160, 80],
+    },
+
+    win : {
+        rect : [80, 220, 160, 160],
+        textWin : [160, 260],
+        textContinue : [160, 340],
+        buttonContinue : [80, 300, 160, 80],
     }
 }

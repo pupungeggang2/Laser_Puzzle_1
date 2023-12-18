@@ -31,6 +31,16 @@ const dataLang = {
         'kr' : '계속'
     },
 
+    'Win' : {
+        'en' : 'Win!',
+        'kr' : '승리!'
+    },
+
+    'Continue' : {
+        'en' : 'Continue',
+        'kr' : '계속하기'
+    },
+
     'Map' : {
         'en' : 'Map',
         'kr' : '레벨선택'
@@ -47,6 +57,11 @@ const dataLang = {
         1001 : {
             'en' : 'Getting Started',
             'kr' : '시작하기'
-        }
+        },
+
+        1002 : {
+            'en' : 'Crossroad',
+            'kr' : '교차로'
+        },
     },
 }

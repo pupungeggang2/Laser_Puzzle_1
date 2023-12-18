@@ -59,8 +59,128 @@ function drawGameUpperBar() {
     context.drawImage(img.game.pause, UI.game.buttonPause[0], UI.game.buttonPause[1])
 }
 
-function drawGameBoard() {
+function drawGame() {
+    // Draing Empty Rectangle
+    for (let i = 0; i < game.level['Board'].length; i++) {
+        for (let j = 0; j < game.level['Board'][i].length; j++) {
+            context.drawImage(img.game.tileEmpty, game.level['Left'] + tileSize * j, game.level['Top'] + tileSize * i)
+        }
+    }
 
+    for (let i = 0; i < 5; i++) {
+        context.drawImage(img.game.tileEmpty, UI.game.hand[0][0] + tileSize * i, UI.game.hand[0][1])
+    }
+
+    // Drawing Ray
+    for (let i = 0; i < game.level['Board'].length; i++) {
+        for (let j = 0; j < game.level['Board'][i].length; j++) {
+            let temp = game.level['Board'][i][j]
+            
+            if (temp['Type'] === 'Power') {
+                for (let k = 0; k < temp['Property'][0].length; k++) {
+                    if (temp['Property'][0][k] === 'Right') {
+                        for (let l = j + 1; l < game.level['Board'][i].length; l++) {
+                            if (game.level['Board'][i][l]['Type'] === 'Wall') {
+                                break
+                            }
+                            context.drawImage(img.game.rayHorizontal, game.level['Left'] + tileSize * l, game.level['Top'] + tileSize * i)
+                        }
+                    } else if (temp['Property'][0][k] === 'Left') {
+                        for (let l = j - 1; l >= 0; l--) {
+                            if (game.level['Board'][i][l]['Type'] === 'Wall') {
+                                break
+                            }
+                            context.drawImage(img.game.rayHorizontal, game.level['Left'] + tileSize * l, game.level['Top'] + tileSize * i)
+                        }
+                    } else if (temp['Property'][0][k] === 'Up') {
+                        for (let l = i - 1; l >= 0; l--) {
+                            if (game.level['Board'][l][j]['Type'] === 'Wall') {
+                                break
+                            }
+                            context.drawImage(img.game.rayVertical, game.level['Left'] + tileSize * j, game.level['Top'] + tileSize * l)
+                        }
+                    } else if (temp['Property'][0][k] === 'Down') {
+                        for (let l = i + 1; l < game.level['Board'].length; l++) {
+                            if (game.level['Board'][l][j]['Type'] === 'Wall') {
+                                break
+                            }
+                            context.drawImage(img.game.rayVertical, game.level['Left'] + tileSize * j, game.level['Top'] + tileSize * l)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Drawing Object
+    context.font = '20px neodgm'
+    for (let i = 0; i < game.level['Board'].length; i++) {
+        for (let j = 0; j < game.level['Board'][i].length; j++) {
+            let temp = game.level['Board'][i][j]
+            
+            if (temp['Type'] === 'Power') {
+                context.drawImage(img.game.tilePower, game.level['Left'] + tileSize * j, game.level['Top'] + tileSize * i)
+                
+                for (let k = 0; k < temp['Property'][0].length; k++) {
+                    if (temp['Property'][0][k] === 'Right') {
+                        context.drawImage(img.game.orbOn, game.level['Left'] + tileSize * j + 48, game.level['Top'] + tileSize * i + 24)
+                    } else if (temp['Property'][0][k] === 'Left') {
+                        context.drawImage(img.game.orbOn, game.level['Left'] + tileSize * j, game.level['Top'] + tileSize * i + 24)
+                    } else if (temp['Property'][0][k] === 'Up') {
+                        context.drawImage(img.game.orbOn, game.level['Left'] + tileSize * j + 24, game.level['Top'] + tileSize * i)
+                    } else if (temp['Property'][0][k] === 'Down') {
+                        context.drawImage(img.game.orbOn, game.level['Left'] + tileSize * j + 24, game.level['Top'] + tileSize * i + 48)
+                    }
+                }
+
+                context.fillText(`${temp['Property'][1]}`, game.level['Left'] + tileSize * j + 32, game.level['Top'] + tileSize * i + 24)
+                context.fillText(`${temp['Property'][2]}`, game.level['Left'] + tileSize * j + 32, game.level['Top'] + tileSize * i + 40)
+            } else if (temp['Type'] === 'Number') {
+                context.drawImage(img.game.tileEmpty, game.level['Left'] + tileSize * j, game.level['Top'] + tileSize * i)
+                context.fillText(`${temp['Property']}`, game.level['Left'] + tileSize * j + 32, game.level['Top'] + tileSize * i + 32)
+            }
+        }
+    }
+
+    for (let i = 0; i < 5; i++) {
+        let temp = game.level['Hand'][i]
+            
+        if (temp['Type'] === 'Power') {
+            context.drawImage(img.game.tilePower, UI.game.hand[0][0] + tileSize * i, UI.game.hand[0][1])
+            
+            for (let k = 0; k < temp['Property'][0].length; k++) {
+                if (temp['Property'][0][k] === 'Right') {
+                    context.drawImage(img.game.orbOn, UI.game.hand[0][0] + tileSize * i + 48, UI.game.hand[0][1] + 24)
+                }
+            }
+
+            context.fillText(`${temp['Property'][1]}`, UI.game.hand[0][0] + tileSize * i + 32, UI.game.hand[0][1] + 24)
+            context.fillText(`${temp['Property'][2]}`, UI.game.hand[0][0] + tileSize * i + 32, UI.game.hand[0][1] + 40)
+        } else if (temp['Type'] === 'Number') {
+            context.drawImage(img.game.tileEmpty, UI.game.hand[0][0] + tileSize * i, UI.game.hand[0][1])
+            context.fillText(`${temp['Property']}`, UI.game.hand[0][0] + tileSize * i + 32, UI.game.hand[0][1] + 32)
+        }
+    }
+
+    if (picking['Type'] != null) {
+        if (picking['Type'] === 'Power') {
+            context.drawImage(img.game.tilePower, pickingPosition[0], pickingPosition[1])
+            
+            for (let k = 0; k < picking['Property'][0].length; k++) {
+                if (picking['Property'][0][k] === 'Right') {
+                    context.drawImage(img.game.orbOn, pickingPosition[0] + 48, pickingPosition[1] + 24)
+                }
+            }
+
+            context.fillText(`${picking['Property'][1]}`, pickingPosition[0] + 32, pickingPosition[1] + 24)
+            context.fillText(`${picking['Property'][2]}`, pickingPosition[0] + 32, pickingPosition[1] + 40)
+        } else if (picking['Type'] === 'Number') {
+            context.drawImage(img.game.tileEmpty, pickingPosition[0], pickingPosition[1])
+            context.fillText(`${picking['Property']}`, pickingPosition[0] + 32, pickingPosition[1] + 32)
+        }
+    }
+
+    context.font = '32px neodgm'
 }
 
 function drawPause() {
@@ -76,6 +196,13 @@ function drawPause() {
     context.fillText(`${dataLang['Map'][langList[lang]]}`, UI.pause.textMap[0], UI.pause.textMap[1])
 }
 
-function generateDrawObject() {
+function drawWin() {
+    context.fillStyle = 'White'
+    context.fillRect(UI.win.rect[0], UI.win.rect[1], UI.win.rect[2], UI.win.rect[3])
+    context.fillStyle = 'Black'
+    context.strokeRect(UI.win.rect[0], UI.win.rect[1], UI.win.rect[2], UI.win.rect[3])
 
+    context.fillText(`${dataLang['Win'][langList[lang]]}`, UI.win.textWin[0], UI.win.textWin[1])
+    context.strokeRect(UI.win.buttonContinue[0], UI.win.buttonContinue[1], UI.win.buttonContinue[2], UI.win.buttonContinue[3])
+    context.fillText(`${dataLang['Continue'][langList[lang]]}`, UI.win.textContinue[0], UI.win.textContinue[1])
 }
