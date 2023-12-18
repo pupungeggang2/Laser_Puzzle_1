@@ -60,54 +60,7 @@ function drawGameUpperBar() {
 }
 
 function drawGameBoard() {
-    let left = UI.game.boardCenter[0] - (game.level['Size'][1] - 2) * 32
-    let top = UI.game.boardCenter[1] - (game.level['Size'][0] - 2) * 32
-    let tileSize = 64
 
-    // Drawing board tiles
-    for (let i = 1; i < game.level['Size'][0] - 1; i++) {
-        for (let j = 1; j < game.level['Size'][1] - 1; j++) {
-            context.drawImage(img.game.tileEmpty, left + (j - 1) * tileSize, top + (i - 1) * tileSize)
-        }
-    }
-
-    // Drawing hand tiles
-    for (let i = 0; i < 5; i++) {
-        context.drawImage(img.game.tileEmpty, UI.game.hand[i][0], UI.game.hand[i][1])
-    }
-
-    // Drawing Objects
-    context.font = '20px neodgm'
-    for (let i = 0; i < drawObject.length; i++) {
-        let thing = drawObject[i]
-
-        if (thing[0] === 'Power') {
-            context.drawImage(img.game.tilePower, thing[2][0], thing[2][1])
-            context.drawImage(img.game.orbOff, thing[2][0] + 24, thing[2][1])
-            context.drawImage(img.game.orbOff, thing[2][0] + 24, thing[2][1] + 48)
-            context.drawImage(img.game.orbOff, thing[2][0], thing[2][1] + 24)
-            context.drawImage(img.game.orbOff, thing[2][0] + 48, thing[2][1] + 24)
-
-            for (let j = 0; j < thing[3].length; j++) {
-                if (thing[3][j] === 'Right') {
-                    context.drawImage(img.game.orbOn, thing[2][0] + 48, thing[2][1] + 24)
-                } else if (thing[3][j] === 'Left') {
-                    context.drawImage(img.game.orbOn, thing[2][0], thing[2][1] + 24)
-                } if (thing[3][j] === 'Up') {
-                    context.drawImage(img.game.orbOn, thing[2][0] + 24, thing[2][1])
-                } else if (thing[3][j] === 'Down') {
-                    context.drawImage(img.game.orbOn, thing[2][0] + 24, thing[2][1] + 48)
-                }
-            }
-
-            context.fillText(`${thing[4]}`, thing[2][0] + 32, thing[2][1] + 24)
-            context.fillText(`${thing[5]}`, thing[2][0] + 32, thing[2][1] + 40)
-        } else if (thing[0] === 'Number') {
-            context.drawImage(img.game.tileEmpty, thing[2][0], thing[2][1])
-            context.fillText(`${thing[3]}`, thing[2][0] + 32, thing[2][1] + 32)
-        }
-    }
-    context.font = '32px neodgm'
 }
 
 function drawPause() {
@@ -124,24 +77,5 @@ function drawPause() {
 }
 
 function generateDrawObject() {
-    let left = UI.game.boardCenter[0] - (game.level['Size'][1] - 2) * 32
-    let top = UI.game.boardCenter[1] - (game.level['Size'][0] - 2) * 32
-    let tileSize = 64
 
-    drawObject = []
-
-    for (let i = 0; i < game.level['ObjectBoard'].length; i++) {
-        let temp = JSON.parse(JSON.stringify(game.level['ObjectBoard'][i]))
-        temp[2] = [left + (temp[2][1] - 1) * tileSize, top + (temp[2][0] - 1) * tileSize]
-        drawObject.push(temp)
-    }
-
-    left = UI.game.hand[0][0]
-    top = UI.game.hand[0][1]
-
-    for (let i = 0; i < game.level['ObjectHand'].length; i++) {
-        let temp = JSON.parse(JSON.stringify(game.level['ObjectHand'][i]))
-        temp[2] = [left + temp[2] * tileSize, top]
-        drawObject.push(temp)
-    }
 }

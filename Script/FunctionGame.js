@@ -11,5 +11,5 @@ function undo() {
 }
 
 function loadLevel() {
-    game.level = JSON.parse(JSON.stringify(dataLevel[levelCurrent]))
+
 }
