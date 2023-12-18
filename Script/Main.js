@@ -99,6 +99,8 @@ function touchStart(event) {
     let x = event.changedTouches[0].pageX - canvasRect.left
     let y = event.changedTouches[0].pageY - canvasRect.top
 
+    event.preventDefault()
+
     if (scene === 'Title') {
         actionDownTitle(x, y, 0)
     } else if (scene === 'LevelSelect') {
@@ -117,6 +119,8 @@ function touchMove(event) {
     let x = event.changedTouches[0].pageX - canvasRect.left
     let y = event.changedTouches[0].pageY - canvasRect.top
 
+    event.preventDefault()
+
     if (scene === 'Title') {
         actionMoveTitle(x, y, 0)
     } else if (scene === 'LevelSelect') {
@@ -134,6 +138,8 @@ function touchEnd(event) {
     let canvasRect = canvas.getBoundingClientRect()
     let x = event.changedTouches[0].pageX - canvasRect.left
     let y = event.changedTouches[0].pageY - canvasRect.top
+
+    event.preventDefault()
 
     if (scene === 'Title') {
         actionUpTitle(x, y, 0)
