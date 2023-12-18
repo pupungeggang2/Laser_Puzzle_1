@@ -21,7 +21,7 @@ function actionDownGame(x, y, button) {
             for (i = 0; i < drawObject.length; i++) {
                 if (pointInsideRect(x, y, drawObject[i][2][0], drawObject[i][2][1], 64, 64)) {
                     if (drawObject[i][1] === true) {
-                        picking = i
+                        pickingDraw = i
                     }
                 }
             }

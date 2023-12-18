@@ -20,11 +20,10 @@ let worldCurrent = -1
 let levelCurrent = -1
 let selectedWorld = -1
 let selectedLevel = -1
-let picking = -1
+let picking = ['None', -1]
+let pickingDraw = -1
 
 let drawObject = []
-let boardObject = []
-let handObject = []
 
 let sessionVar = {
 
@@ -35,5 +34,8 @@ let game = {
         
     }
 }
+
+let boardLeft = -1
+let boardTop = -1
 
 let stateRecorded = []

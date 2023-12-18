@@ -130,33 +130,18 @@ function generateDrawObject() {
 
     drawObject = []
 
-    for (i = 1; i < game.level['Size'][0] - 1; i++) {
-        for (j = 1; j < game.level['Size'][1] - 1; j++) {
-            let x = left + (j - 1) * tileSize
-            let y = top + (i - 1) * tileSize
-            let thing = game.level['Board'][i][j]
-
-            if (thing[0] === 'Power') {
-                let temp = ['Power', thing[1], [x, y], JSON.parse(JSON.stringify(thing[2])), thing[3], thing[4]]
-                drawObject.push(temp)
-            } else if (thing[0] === 'Number') {
-                let temp = ['Number', thing[1], [x, y], thing[2]]
-                drawObject.push(temp)
-            }
-        }
+    for (let i = 0; i < game.level['ObjectBoard'].length; i++) {
+        let temp = JSON.parse(JSON.stringify(game.level['ObjectBoard'][i]))
+        temp[2] = [left + (temp[2][1] - 1) * tileSize, top + (temp[2][0] - 1) * tileSize]
+        drawObject.push(temp)
     }
 
-    for (i = 0; i < 5; i++) {
-        let x = UI.game.hand[i][0]
-        let y = UI.game.hand[i][1]
-        let thing = game.level['Hand'][i]
+    left = UI.game.hand[0][0]
+    top = UI.game.hand[0][1]
 
-        if (thing[0] === 'Power') {
-            let temp = ['Power', thing[1], [x, y], JSON.parse(JSON.stringify(thing[2])), thing[3], thing[4]]
-            drawObject.push(temp)
-        } else if (thing[0] === 'Number') {
-            let temp = ['Number', thing[1], [x, y], thing[2]]
-            drawObject.push(temp)
-        }
+    for (let i = 0; i < game.level['ObjectHand'].length; i++) {
+        let temp = JSON.parse(JSON.stringify(game.level['ObjectHand'][i]))
+        temp[2] = [left + temp[2] * tileSize, top]
+        drawObject.push(temp)
     }
 }
