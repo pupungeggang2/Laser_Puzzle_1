@@ -63,5 +63,10 @@ const dataLang = {
             'en' : 'Crossroad',
             'kr' : '교차로'
         },
+
+        1003 : {
+            'en' : 'Branch',
+            'kr' : '가지'
+        }
     },
 }

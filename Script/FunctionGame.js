@@ -31,44 +31,46 @@ function applyChange() {
                 let sum = 0
 
                 for (let k = 0; k < temp['Property'][0].length; k++) {
+                    let rayQueue = []
                     if (temp['Property'][0][k] === 'Right') {
-                        for (let l = j + 1; l < game.level['Board'][i].length; l++) {
-                            if (game.level['Board'][i][l]['Type'] === 'Wall') {
-                                break
-                            }
-
-                            if (game.level['Board'][i][l]['Type'] === 'Number') {
-                                sum += game.level['Board'][i][l]['Property']
-                            }
-                        }
+                        rayQueue = [[i, j + 1, 'Right']]
                     } else if (temp['Property'][0][k] === 'Left') {
-                        for (let l = j - 1; l >= 0; l--) {
-                            if (game.level['Board'][i][l]['Type'] === 'Wall') {
-                                break
-                            }
-
-                            if (game.level['Board'][i][l]['Type'] === 'Number') {
-                                sum += game.level['Board'][i][l]['Property']
-                            }
-                        }
+                        rayQueue = [[i, j - 1, 'Left']]
                     } else if (temp['Property'][0][k] === 'Up') {
-                        for (let l = i - 1; l >= 0; l--) {
-                            if (game.level['Board'][l][j]['Type'] === 'Wall') {
-                                break
-                            }
-
-                            if (game.level['Board'][l][j]['Type'] === 'Number') {
-                                sum += game.level['Board'][l][j]['Property']
-                            }
-                        }
+                        rayQueue = [[i - 1, j, 'Up']]
                     } else if (temp['Property'][0][k] === 'Down') {
-                        for (let l = i + 1; l < game.level['Board'].length; l++) {
-                            if (game.level['Board'][l][j]['Type'] === 'Wall') {
-                                break
-                            }
+                        rayQueue = [[i + 1, j, 'Down']]
+                    }
 
-                            if (game.level['Board'][l][j]['Type'] === 'Number') {
-                                sum += game.level['Board'][l][j]['Property']
+                    while (rayQueue.length > 0) {
+                        let row = rayQueue[0][0]
+                        let column = rayQueue[0][1]
+                        let direction = rayQueue[0][2]
+                        rayQueue.shift()
+
+                        if (!(row >= 0 && column >= 0 && row < game.level['Board'].length && column < game.level['Board'][0].length)) {
+                            continue
+                        }
+
+                        if (game.level['Board'][row][column]['Type'] === 'Wall') {
+                            continue
+                        }
+
+                        if (game.level['Board'][row][column]['Type'] === 'Number') {
+                            sum += game.level['Board'][row][column]['Property']
+                        }
+
+                        if (false) {
+
+                        } else {
+                            if (direction === 'Right') {
+                                rayQueue.push([row, column + 1, 'Right'])
+                            } else if (direction === 'Left') {
+                                rayQueue.push([row, column - 1, 'Left'])
+                            } else if (direction === 'Up') {
+                                rayQueue.push([row - 1, column, 'Up'])
+                            } else if (direction === 'Down') {
+                                rayQueue.push([row + 1, column, 'Down'])
                             }
                         }
                     }
