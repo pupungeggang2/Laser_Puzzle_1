@@ -44,11 +44,35 @@ function actionUpGame(x, y, button) {
         if (state === '') {
             if (picking != -1) {
                 picking = -1
+                let left = UI.game.boardCenter[0] - (game.level['Size'][1] - 2) * 32
+                let top = UI.game.boardCenter[1] - (game.level['Size'][0] - 2) * 32
+                let tileSize = 64
+                let moved = false
+
+                for (let i = 1; i < game.level['Size'][0] - 1; i++) {
+                    for (let j = 0; j < game.level['Size'][1] - 1; j++) {
+                        if (pointInsideRect(left + tileSize * j, top + tileSize * i, tileSize, tileSize)) {
+                            if (game.level['Board'][i][j][0] === 'Empty') {
+
+                            }
+                        }
+                    }
+                }
+
+                for (let i = 0; i < 5; i++) {
+
+                }
             }
 
-            if (pointInsideRectArray(x, y, UI.game.buttonPause)) {
+            if (pointInsideRectArray(x, y, UI.game.buttonRetry)) {
+                loadLevel()
+                generateDrawObject()
+            } else if (pointInsideRectArray(x, y, UI.game.buttonPause)) {
                 pause = true
             }
+
+            applyChange()
+            winCheck()
         }
     } else if (pause === true) {
         if (pointInsideRectArray(x, y, UI.pause.buttonResume)) {

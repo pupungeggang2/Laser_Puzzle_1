@@ -22,9 +22,9 @@ let selectedWorld = -1
 let selectedLevel = -1
 let picking = -1
 
-let drawObject = {
-
-}
+let drawObject = []
+let boardObject = []
+let handObject = []
 
 let sessionVar = {
 

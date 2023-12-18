@@ -123,7 +123,7 @@ function drawPause() {
     context.fillText(`${dataLang['Map'][langList[lang]]}`, UI.pause.textMap[0], UI.pause.textMap[1])
 }
 
-function generateDrawobject() {
+function generateDrawObject() {
     let left = UI.game.boardCenter[0] - (game.level['Size'][1] - 2) * 32
     let top = UI.game.boardCenter[1] - (game.level['Size'][0] - 2) * 32
     let tileSize = 64
