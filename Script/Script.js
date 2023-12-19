@@ -67,6 +67,11 @@ const dataLang = {
         1003 : {
             'en' : 'Branch',
             'kr' : '가지'
+        },
+
+        1004 : {
+            'en' : 'Grid',
+            'kr' : '격자'
         }
     },
 }

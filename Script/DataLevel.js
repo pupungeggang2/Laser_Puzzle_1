@@ -65,11 +65,38 @@ const dataLevel = {
         ],
         'Left' : -1,
         'Top' : -1,
+    },
+
+    1004 : {
+        'Size' : [3, 3],
+        'Board' : [],
+        'Hand' : [],
+        'Thing' : [
+            {'Type' : 'Power', 'Movable' : false, 'Property' : [['Down'], 0, 9]},
+            {'Type' : 'Power', 'Movable' : false, 'Property' : [['Down'], 0, 5]},
+            {'Type' : 'Power', 'Movable' : false, 'Property' : [['Right'], 0, 10]},
+            {'Type' : 'Power', 'Movable' : false, 'Property' : [['Right'], 0, 4]},
+            {'Type' : 'Number', 'Movable' : true, 'Property' : 6},
+            {'Type' : 'Number', 'Movable' : true, 'Property' : 4},
+            {'Type' : 'Number', 'Movable' : true, 'Property' : 3},
+            {'Type' : 'Number', 'Movable' : true, 'Property' : 1},
+        ],
+        'Position' : [
+            [0, 1],
+            [0, 2],
+            [1, 0],
+            [2, 0],
+            [-1, 0],
+            [-1, 1],
+            [-1, 2],
+            [-1, 3]
+        ],
     }
 }
 
 const dataLevelConnection = {
     1001 : [1002],
     1002 : [1003],
-    1003 : [1004]
+    1003 : [1004],
+    1004 : []
 }
