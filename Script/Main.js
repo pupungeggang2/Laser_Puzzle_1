@@ -43,17 +43,13 @@ function mouseDown(event) {
     let y = event.clientY - canvasRect.top
     let button = event.button
 
-    if (mouseDownEnabled === true) {
-        if (scene === 'Title') {
-            actionDownTitle(x, y, button)
-        } else if (scene === 'LevelSelect') {
-            actionDownLevelSelect(x, y, button)
-        } else if (scene === 'Game') {
-            actionDownGame(x, y, button)
-        }
+    if (scene === 'Title') {
+        actionDownTitle(x, y, button)
+    } else if (scene === 'LevelSelect') {
+        actionDownLevelSelect(x, y, button)
+    } else if (scene === 'Game') {
+        actionDownGame(x, y, button)
     }
-    
-    mouseDownEnabled = true
 }
 
 function mouseMove(event) {
@@ -62,17 +58,13 @@ function mouseMove(event) {
     let y = event.clientY - canvasRect.top
     let button = event.button
 
-    if (mouseMoveEnabled === true) {
-        if (scene === 'Title') {
-            actionMoveTitle(x, y, button)
-        } else if (scene === 'LevelSelect') {
-            actionMoveLevelSelect(x, y, button)
-        } else if (scene === 'Game') {
-            actionMoveGame(x, y, button)
-        }
+    if (scene === 'Title') {
+        actionMoveTitle(x, y, button)
+    } else if (scene === 'LevelSelect') {
+        actionMoveLevelSelect(x, y, button)
+    } else if (scene === 'Game') {
+        actionMoveGame(x, y, button)
     }
-
-    mouseMoveEnabled = true
 }
 
 function mouseUp(event) {
@@ -81,25 +73,19 @@ function mouseUp(event) {
     let y = event.clientY - canvasRect.top
     let button = event.button
 
-    if (mouseUpEnabled === true) {
-        if (scene === 'Title') {
-            actionUpTitle(x, y, button)
-        } else if (scene === 'LevelSelect') {
-            actionUpLevelSelect(x, y, button)
-        } else if (scene === 'Game') {
-            actionUpGame(x, y, button)
-        }
+    if (scene === 'Title') {
+        actionUpTitle(x, y, button)
+    } else if (scene === 'LevelSelect') {
+        actionUpLevelSelect(x, y, button)
+    } else if (scene === 'Game') {
+        actionUpGame(x, y, button)
     }
-
-    mouseUpEnabled = true
 }
 
 function touchStart(event) {
     let canvasRect = canvas.getBoundingClientRect()
     let x = event.changedTouches[0].pageX - canvasRect.left
     let y = event.changedTouches[0].pageY - canvasRect.top
-
-    event.preventDefault()
 
     if (scene === 'Title') {
         actionDownTitle(x, y, 0)
@@ -109,17 +95,13 @@ function touchStart(event) {
         actionDownGame(x, y, 0)
     }
 
-    mouseUpEnabled = false
-    mouseMoveEnabled = false
-    mouseDownEnabled = false
+    event.preventDefault()
 }
 
 function touchMove(event) {
     let canvasRect = canvas.getBoundingClientRect()
     let x = event.changedTouches[0].pageX - canvasRect.left
     let y = event.changedTouches[0].pageY - canvasRect.top
-
-    event.preventDefault()
 
     if (scene === 'Title') {
         actionMoveTitle(x, y, 0)
@@ -129,17 +111,13 @@ function touchMove(event) {
         actionMoveGame(x, y, 0)
     }
 
-    mouseUpEnabled = true
-    mouseMoveEnabled = true
-    mouseDownEnabled = true
+    event.preventDefault()
 }
 
 function touchEnd(event) {
     let canvasRect = canvas.getBoundingClientRect()
     let x = event.changedTouches[0].pageX - canvasRect.left
     let y = event.changedTouches[0].pageY - canvasRect.top
-
-    event.preventDefault()
 
     if (scene === 'Title') {
         actionUpTitle(x, y, 0)
@@ -148,6 +126,8 @@ function touchEnd(event) {
     } else if (scene === 'Game') {
         actionUpGame(x, y, 0)
     }
+
+    event.preventDefault()
 }
 
 function errorHandle(err, url, line, col, obj) {
