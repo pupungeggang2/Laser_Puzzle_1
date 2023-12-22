@@ -19,6 +19,8 @@ let img = {
         rayVertical : new Image(),
         tileEmpty : new Image(),
         tilePower : new Image(),
+        bolt : new Image(),
+        wall : new Image(),
     }
 }
 
@@ -42,4 +44,6 @@ function imageLoad() {
     img.game.rayVertical.src = 'Image/RayVertical.png'
     img.game.tileEmpty.src = 'Image/TileEmpty.png'
     img.game.tilePower.src = 'Image/TilePower.png'
+    img.game.bolt.src = 'Image/Bolt.png'
+    img.game.wall.src = 'Image/Wall.png'
 }

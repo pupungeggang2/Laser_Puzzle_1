@@ -6,7 +6,10 @@ function drawSceneInit() {
     context.textBaseline = 'middle'
     context.lineWidth = 2
 
-    context.clearRect(0, 0, 320, 640)
+    context.clearRect(0, 0, 320, 600)
+    context.fillStyle = 'White'
+    context.fillRect(0, 0, 320, 600)
+    context.fillStyle = 'Black'
 }
 
 function drawWorldComponent() {
@@ -14,7 +17,7 @@ function drawWorldComponent() {
         if (sessionVar.worldStatus[dataWorld[worldCurrent]['World'][i][4]] === 0) {
             context.drawImage(img.levelLocked, dataWorld[worldCurrent]['World'][i][0], dataWorld[worldCurrent]['World'][i][1])
         } else if (sessionVar.worldStatus[dataWorld[worldCurrent]['World'][i][4]] === 1) {
-            context.drawImage(img.levelOpened, dataWorld[worldCurrent]['World'][i][0], dataWorld[worldCurrent]['World'][i][1])
+            context.drawImage(img.levelOpen, dataWorld[worldCurrent]['World'][i][0], dataWorld[worldCurrent]['World'][i][1])
         } else if (sessionVar.worldStatus[dataWorld[worldCurrent]['World'][i][4]] === 2) {
             context.drawImage(img.levelCleared, dataWorld[worldCurrent]['World'][i][0], dataWorld[worldCurrent]['World'][i][1])
         }
@@ -154,6 +157,12 @@ function drawGame() {
             } else if (temp['Type'] === 'Number') {
                 context.drawImage(img.game.tileEmpty, game.level['Left'] + tileSize * j, game.level['Top'] + tileSize * i)
                 context.fillText(`${temp['Property']}`, game.level['Left'] + tileSize * j + 32, game.level['Top'] + tileSize * i + 32)
+            } else if (temp['Type'] === 'Wall') {
+                context.drawImage(img.game.wall,  game.level['Left'] + tileSize * j, game.level['Top'] + tileSize * i)
+            }
+
+            if (temp['Movable'] === false) {
+                context.drawImage(img.game.bolt, game.level['Left'] + tileSize * j + 48, game.level['Top'] + tileSize * i)
             }
         }
     }
@@ -175,6 +184,8 @@ function drawGame() {
         } else if (temp['Type'] === 'Number') {
             context.drawImage(img.game.tileEmpty, UI.game.hand[0][0] + tileSize * i, UI.game.hand[0][1])
             context.fillText(`${temp['Property']}`, UI.game.hand[0][0] + tileSize * i + 32, UI.game.hand[0][1] + 32)
+        } else if (temp['Type'] === 'Wall') {
+            context.drawImage(img.game.wall, UI.game.hand[0][0] + tileSize * i, UI.game.hand[0][1])
         }
     }
 
@@ -193,6 +204,8 @@ function drawGame() {
         } else if (picking['Type'] === 'Number') {
             context.drawImage(img.game.tileEmpty, pickingPosition[0], pickingPosition[1])
             context.fillText(`${picking['Property']}`, pickingPosition[0] + 32, pickingPosition[1] + 32)
+        } else if (picking['Type'] === 'Wall') {
+            context.drawImage(img.game.wall, pickingPosition[0], pickingPosition[1])
         }
     }
 
@@ -210,15 +223,4 @@ function drawPause() {
     context.fillText(`${dataLang['Resume'][langList[lang]]}`, UI.pause.textResume[0], UI.pause.textResume[1])
     context.strokeRect(UI.pause.buttonMap[0], UI.pause.buttonMap[1], UI.pause.buttonMap[2], UI.pause.buttonMap[3])
     context.fillText(`${dataLang['Map'][langList[lang]]}`, UI.pause.textMap[0], UI.pause.textMap[1])
-}
-
-function drawWin() {
-    context.fillStyle = 'White'
-    context.fillRect(UI.win.rect[0], UI.win.rect[1], UI.win.rect[2], UI.win.rect[3])
-    context.fillStyle = 'Black'
-    context.strokeRect(UI.win.rect[0], UI.win.rect[1], UI.win.rect[2], UI.win.rect[3])
-
-    context.fillText(`${dataLang['Win'][langList[lang]]}`, UI.win.textWin[0], UI.win.textWin[1])
-    context.strokeRect(UI.win.buttonContinue[0], UI.win.buttonContinue[1], UI.win.buttonContinue[2], UI.win.buttonContinue[3])
-    context.fillText(`${dataLang['Continue'][langList[lang]]}`, UI.win.textContinue[0], UI.win.textContinue[1])
 }

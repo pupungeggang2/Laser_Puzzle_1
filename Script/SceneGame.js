@@ -5,17 +5,17 @@ function loopGame() {
 function displayGame() {
     drawSceneInit()
 
-    context.fillText(`${dataLang['LevelTitle'][levelCurrent][langList[lang]]}`, UI.textTitle[0], UI.textTitle[1])
+    if (state === '') {
+        context.fillText(`${dataLang['LevelTitle'][levelCurrent][langList[lang]]}`, UI.textTitle[0], UI.textTitle[1])
+    } else if (state === 'Win') {
+        context.fillText(`${dataLang['Win'][langList[lang]]}`, UI.textTitle[0], UI.textTitle[1])
+    }
 
     drawGameUpperBar()
     drawGame()
 
     if (pause === true) {
         drawPause()
-    }
-
-    if (state === 'Win') {
-        drawWin()
     }
 }
 
@@ -110,12 +110,10 @@ function actionUpGame(x, y, button) {
                     picking = {'Type' : null}
                 }
             } else if (state === 'Win') {
-                if (pointInsideRectArray(x, y, UI.win.buttonContinue)) {
-                    scene = 'LevelSelect'
-                    selectedWorld = -1
-                    selectedLevel = -1
-                    state = ''
-                }
+                scene = 'LevelSelect'
+                selectedWorld = -1
+                selectedLevel = -1
+                state = ''
             }
         } else if (pause === true) {
             if (pointInsideRectArray(x, y, UI.pause.buttonResume)) {

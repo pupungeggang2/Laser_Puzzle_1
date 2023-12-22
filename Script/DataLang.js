@@ -32,13 +32,8 @@ const dataLang = {
     },
 
     'Win' : {
-        'en' : 'Win!',
-        'kr' : '승리!'
-    },
-
-    'Continue' : {
-        'en' : 'Continue',
-        'kr' : '계속하기'
+        'en' : 'Win! Click',
+        'kr' : '승리! 클릭하세요'
     },
 
     'Map' : {
@@ -50,6 +45,11 @@ const dataLang = {
         3000 : {
             'en' : 'W0:Beginning',
             'kr' : 'W0:시작',
+        },
+
+        3001 : {
+            'en' : 'W1:Earth',
+            'kr' : 'W1:대지'
         },
     },
 
@@ -72,6 +72,21 @@ const dataLang = {
         1004 : {
             'en' : 'Grid',
             'kr' : '격자'
+        },
+
+        1101 : {
+            'en' : 'Paradox',
+            'kr' : '모순'
+        },
+
+        1102 : {
+            'en' : 'Wall',
+            'kr' : '벽'
+        },
+
+        1103 : {
+            'en' : 'Blocking',
+            'kr' : '막기'
         }
     },
 }

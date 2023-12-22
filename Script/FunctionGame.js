@@ -16,8 +16,14 @@ function winCheck() {
     sessionVar.levelStatus[levelCurrent] = 2
     
     for (let i = 0; i < dataLevelConnection[levelCurrent].length; i++) {
-        if (sessionVar.levelStatus[dataLevelConnection[levelCurrent][i]] === 0) {
-            sessionVar.levelStatus[dataLevelConnection[levelCurrent][i]] = 1
+        if (dataLevelConnection[levelCurrent][i] < 3000) {
+            if (sessionVar.levelStatus[dataLevelConnection[levelCurrent][i]] === 0) {
+                sessionVar.levelStatus[dataLevelConnection[levelCurrent][i]] = 1
+            }
+        } else {
+            if (sessionVar.worldStatus[dataLevelConnection[levelCurrent][i]] === 0) {
+                sessionVar.worldStatus[dataLevelConnection[levelCurrent][i]] = 1
+            }
         }
     }
 }
@@ -129,5 +135,5 @@ function loadLevel() {
     }
 
     recorded = []
-    recorded.push(JSON.stringify(game.level))
+    applyChange()
 }
