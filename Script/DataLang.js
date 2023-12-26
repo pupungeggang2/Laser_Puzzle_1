@@ -51,6 +51,11 @@ const dataLang = {
             'en' : 'W1:Earth',
             'kr' : 'W1:대지'
         },
+
+        3002 : {
+            'en' : 'W2:Ice',
+            'kr' : 'W2:얼음'
+        }
     },
 
     'LevelTitle' : {
@@ -87,6 +92,16 @@ const dataLang = {
         1103 : {
             'en' : 'Blocking',
             'kr' : '막기'
-        }
+        },
+
+        1201 : {
+            'en' : 'Ice',
+            'kr' :'얼음'
+        },
+
+        1202 : {
+            'en' : 'Ice sheet',
+            'kr' : '빙판',
+        },
     },
 }

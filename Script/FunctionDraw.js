@@ -158,7 +158,9 @@ function drawGame() {
                 context.drawImage(img.game.tileEmpty, game.level['Left'] + tileSize * j, game.level['Top'] + tileSize * i)
                 context.fillText(`${temp['Property']}`, game.level['Left'] + tileSize * j + 32, game.level['Top'] + tileSize * i + 32)
             } else if (temp['Type'] === 'Wall') {
-                context.drawImage(img.game.wall,  game.level['Left'] + tileSize * j, game.level['Top'] + tileSize * i)
+                context.drawImage(img.game.wall, game.level['Left'] + tileSize * j, game.level['Top'] + tileSize * i)
+            } else if (temp['Type'] === 'Ice') {
+                context.drawImage(img.game.tileIce, game.level['Left'] + tileSize * j, game.level['Top'] + tileSize * i)
             }
 
             if (temp['Movable'] === false) {
@@ -186,6 +188,8 @@ function drawGame() {
             context.fillText(`${temp['Property']}`, UI.game.hand[0][0] + tileSize * i + 32, UI.game.hand[0][1] + 32)
         } else if (temp['Type'] === 'Wall') {
             context.drawImage(img.game.wall, UI.game.hand[0][0] + tileSize * i, UI.game.hand[0][1])
+        } else if (temp['Type'] === 'Ice') {
+            context.drawImage(img.game.tileIce, UI.game.hand[0][0] + tileSize * i, UI.game.hand[0][1])
         }
     }
 
@@ -206,6 +210,8 @@ function drawGame() {
             context.fillText(`${picking['Property']}`, pickingPosition[0] + 32, pickingPosition[1] + 32)
         } else if (picking['Type'] === 'Wall') {
             context.drawImage(img.game.wall, pickingPosition[0], pickingPosition[1])
+        } else if (picking['Type'] === 'Ice') {
+            context.drawImage(img.game.tileIce, pickingPosition[0], pickingPosition[1])
         }
     }
 
