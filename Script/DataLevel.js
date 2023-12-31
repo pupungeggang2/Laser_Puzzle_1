@@ -149,6 +149,38 @@ const dataLevel = {
         'Top' : -1,
     },
 
+    1103 : {
+        'Size' : [4, 4],
+        'Board' : [],
+        'Hand' : [],
+        'Thing' : [
+            {'Type' : 'Power', 'Movable' : false, 'Property' : [['Down'], 0, 3]},
+            {'Type' : 'Power', 'Movable' : false, 'Property' : [['Down'], 0, 0]},
+            {'Type' : 'Power', 'Movable' : false, 'Property' : [['Down'], 0, 8]},
+            {'Type' : 'Power', 'Movable' : false, 'Property' : [['Right'], 0, 10]},
+            {'Type' : 'Wall', 'Movable' : false, 'Property' : -1},
+            {'Type' : 'Wall', 'Movable' : false, 'Property' : -1},
+            {'Type' : 'Number', 'Movable' : true, 'Property' : 2},
+            {'Type' : 'Number', 'Movable' : true, 'Property' : 3},
+            {'Type' : 'Number', 'Movable' : true, 'Property' : 4},
+            {'Type' : 'Number', 'Movable' : true, 'Property' : 6},
+        ],
+        'Position' : [
+            [0, 1],
+            [0, 2],
+            [0, 3],
+            [3, 0],
+            [2, 1],
+            [2, 2],
+            [-1, 0],
+            [-1, 1],
+            [-1, 2],
+            [-1, 3]
+        ],
+        'Left' : -1,
+        'Top' : -1,
+    },
+
     1201 : {
         'Size' : [1, 3],
         'Board' : [],
@@ -192,6 +224,42 @@ const dataLevel = {
         'Left' : -1,
         'Top' : -1,
     },
+
+    1203 : {
+        'Size' : [4, 4],
+        'Board' : [],
+        'Hand' : [],
+        'Thing' : [
+            {'Type' : 'Power', 'Movable' : false, 'Property' : [['Down'], 0, 2]},
+            {'Type' : 'Power', 'Movable' : false, 'Property' : [['Down'], 0, 9]},
+            {'Type' : 'Power', 'Movable' : false, 'Property' : [['Down'], 0, 3]},
+            {'Type' : 'Power', 'Movable' : false, 'Property' : [['Right'], 0, 5]},
+            {'Type' : 'Power', 'Movable' : false, 'Property' : [['Right'], 0, 5]},
+            {'Type' : 'Ice', 'Movable' : false, 'Property' : -1},
+            {'Type' : 'Ice', 'Movable' : false, 'Property' : -1},
+            {'Type' : 'Ice', 'Movable' : false, 'Property' : -1},
+            {'Type' : 'Number', 'Movable' : true, 'Property' : 2},
+            {'Type' : 'Number', 'Movable' : true, 'Property' : 3},
+            {'Type' : 'Number', 'Movable' : true, 'Property' : 4},
+            {'Type' : 'Number', 'Movable' : true, 'Property' : 5},
+        ],
+        'Position' : [
+            [0, 1],
+            [0, 2],
+            [0, 3],
+            [2, 0],
+            [3, 0],
+            [1, 1],
+            [2, 2],
+            [3, 3],
+            [-1, 0],
+            [-1, 1],
+            [-1, 2],
+            [-1, 3]
+        ],
+        'Left' : -1,
+        'Top' : -1,
+    }
 }
 
 const dataLevelConnection = {
@@ -201,6 +269,20 @@ const dataLevelConnection = {
     1004 : [1101, 1201, 1301, 1401, 1501, 1601, 3001, 3002, 3003, 3004, 3005, 3006],
     1101 : [1102],
     1102 : [1103],
+    1103 : [1104],
     1201 : [1202],
     1202 : [1203],
+    1203 : [1204],
+    1301 : [1302],
+    1302 : [1303],
+    1303 : [1304],
+    1401 : [1402],
+    1402 : [1403],
+    1403 : [1404],
+    1501 : [1502],
+    1502 : [1503],
+    1503 : [1504],
+    1601 : [1602],
+    1602 : [1603],
+    1603 : [1604],
 }

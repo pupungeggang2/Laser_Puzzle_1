@@ -55,6 +55,26 @@ const dataLang = {
         3002 : {
             'en' : 'W2:Ice',
             'kr' : 'W2:얼음'
+        },
+
+        3003 : {
+            'en' : 'W3:Light',
+            'kr' : 'W3:빛'
+        },
+
+        3004 : {
+            'en' : 'W4:Fire',
+            'kr' : 'W4:불'
+        },
+
+        3005 : {
+            'en' : 'W5:Wind',
+            'kr' : 'W5:바람'
+        },
+
+        3006 : {
+            'en' : 'W6:Dark',
+            'kr' : 'W6:어둠'
         }
     },
 
@@ -90,8 +110,13 @@ const dataLang = {
         },
 
         1103 : {
-            'en' : 'Blocking',
-            'kr' : '막기'
+            'en' : 'Blocked Path',
+            'kr' : '막다른 길'
+        },
+
+        1104 : {
+            'en' : 'Wall & Number',
+            'kr' : '벽과 숫자'
         },
 
         1201 : {
@@ -103,5 +128,15 @@ const dataLang = {
             'en' : 'Ice sheet',
             'kr' : '빙판',
         },
+
+        1203 : {
+            'en' : 'Grid2',
+            'kr' : '격자2'
+        },
+
+        1204 : {
+            'en' : 'Adding',
+            'kr' : '합'
+        }
     },
 }
