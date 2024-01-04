@@ -137,6 +137,16 @@ const dataLang = {
         1204 : {
             'en' : 'Adding',
             'kr' : '합'
+        },
+
+        1401 : {
+            'en' : 'More less than',
+            'kr' : '초과와 미만'
+        },
+
+        1402 : {
+            'en' : 'Minimize',
+            'kr' : '최소화'
         }
     },
 }

@@ -7,6 +7,14 @@ function winCheck() {
                 if (temp['Property'][1] != temp['Property'][2]) {
                     return
                 }
+            } else if (temp['Type'] === 'PowerUpper') {
+                if (temp['Property'][1] <= temp['Property'][2]) {
+                    return
+                }
+            } else if (temp['Type'] === 'PowerLower') {
+                if (temp['Property'][1] >= temp['Property'][2]) {
+                    return
+                }
             }
         }
     }
@@ -33,7 +41,7 @@ function applyChange() {
     for (let i = 0; i < game.level['Board'].length; i++) {
         for (let j = 0; j < game.level['Board'][i].length; j++) {
             let temp = game.level['Board'][i][j]
-            if (temp['Type'] === 'Power') {
+            if (temp['Type'] === 'Power' || temp['Type'] === 'PowerUpper' || temp['Type'] === 'PowerLower') {
                 let sum = 0
 
                 for (let k = 0; k < temp['Property'][0].length; k++) {
