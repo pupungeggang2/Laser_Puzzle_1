@@ -3,7 +3,7 @@ function winCheck() {
         for (let j = 0; j < game.level['Board'][i].length; j++) {
             let temp = game.level['Board'][i][j]
 
-            if (temp['Type'] === 'Power') {
+            if (temp['Type'] === 'Power' || temp['Type'] === 'PowerNum') {
                 if (temp['Property'][1] != temp['Property'][2]) {
                     return
                 }
@@ -41,8 +41,9 @@ function applyChange() {
     for (let i = 0; i < game.level['Board'].length; i++) {
         for (let j = 0; j < game.level['Board'][i].length; j++) {
             let temp = game.level['Board'][i][j]
-            if (temp['Type'] === 'Power' || temp['Type'] === 'PowerUpper' || temp['Type'] === 'PowerLower') {
+            if (temp['Type'] === 'Power' || temp['Type'] === 'PowerUpper' || temp['Type'] === 'PowerLower' || temp['Type'] === 'PowerNum') {
                 let sum = 0
+                let num = 0
 
                 for (let k = 0; k < temp['Property'][0].length; k++) {
                     let rayQueue = []
@@ -72,6 +73,7 @@ function applyChange() {
 
                         if (game.level['Board'][row][column]['Type'] === 'Number') {
                             sum += game.level['Board'][row][column]['Property']
+                            num += 1
                         }
 
                         if (false) {
@@ -90,7 +92,11 @@ function applyChange() {
                     }
                 }
 
-                temp['Property'][1] = sum
+                if (temp['Type'] === 'Power' || temp['Type'] === 'PowerUpper' || temp['Type'] === 'PowerLower') {
+                    temp['Property'][1] = sum
+                } else if (temp['Type'] === 'PowerNum') {
+                    temp['Property'][1] = num
+                }
             }
         }
     }

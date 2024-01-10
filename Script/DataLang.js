@@ -58,24 +58,14 @@ const dataLang = {
         },
 
         3003 : {
-            'en' : 'W3:Light',
-            'kr' : 'W3:빛'
+            'en' : 'W3:Wind',
+            'kr' : 'W3:바람'
         },
 
         3004 : {
             'en' : 'W4:Fire',
             'kr' : 'W4:불'
         },
-
-        3005 : {
-            'en' : 'W5:Wind',
-            'kr' : 'W5:바람'
-        },
-
-        3006 : {
-            'en' : 'W6:Dark',
-            'kr' : 'W6:어둠'
-        }
     },
 
     'LevelTitle' : {
@@ -139,6 +129,26 @@ const dataLang = {
             'kr' : '합'
         },
 
+        1301 : {
+            'en' : 'Weight',
+            'kr' : '무게'
+        },
+
+        1302 : {
+            'en' : 'Lightweight',
+            'kr' : '경량화',
+        },
+
+        1303 : {
+            'en' : 'Number of Number',
+            'kr' : '숫자의숫자'
+        },
+
+        1304 : {
+            'en' : 'Pinwheel',
+            'kr' : '바람개비'
+        },
+
         1401 : {
             'en' : 'More less than',
             'kr' : '초과와 미만'
@@ -147,6 +157,43 @@ const dataLang = {
         1402 : {
             'en' : 'Minimize',
             'kr' : '최소화'
+        },
+
+        1403 : {
+            'en' : 'Maximize',
+            'kr' : '최대화',
+        },
+
+        1404 : {
+            'en' : 'Flow',
+            'kr' : '흐름'
         }
     },
+
+    'Objective' : {
+        'en' : 'Objective',
+        'kr' : '목표'
+    },
+
+    'Objective1' : {
+        'en' : [
+            'Match the requirement', 'of power.',
+            'Normal Power', 'Sum of crossing numbers.',
+            'Upper Power', 'Greater than sum.',
+            'Lower Power', 'Lesser than sum.',
+            'Num Power', 'Number of numbers.'
+        ],
+        'kr' : [
+            '모든 파워의 조건을 만족하세요.',
+            '일반 파워 : 통과하는 모든 ', '숫자의 합.',
+            '초과 파워 : 합이 목표보다 ', '커야함.',
+            '미만 파워 : 합이 목표보다 ', '작아야함.',
+            '숫자 파워 : 통과하는 숫자의 ', '개수'
+        ]
+    },
+
+    'Help' : {
+        'en' : 'Help',
+        'kr' : '도움말'
+    }
 }

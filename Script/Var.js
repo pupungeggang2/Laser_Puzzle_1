@@ -26,7 +26,9 @@ let sessionVar = {
 let game = {
     level : {
         
-    }
+    },
+
+    helpIndex : 0,
 }
 
 let recorded = []

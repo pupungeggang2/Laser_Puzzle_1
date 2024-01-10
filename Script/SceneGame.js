@@ -5,7 +5,7 @@ function loopGame() {
 function displayGame() {
     drawSceneInit()
 
-    if (state === '') {
+    if (state === '' || state === 'Objective' || state === 'Help') {
         context.fillText(`${dataLang['LevelTitle'][levelCurrent][langList[lang]]}`, UI.textTitle[0], UI.textTitle[1])
     } else if (state === 'Win') {
         context.fillText(`${dataLang['Win'][langList[lang]]}`, UI.textTitle[0], UI.textTitle[1])
@@ -16,6 +16,14 @@ function displayGame() {
 
     if (pause === true) {
         drawPause()
+    }
+
+    if (state === 'Objective') {
+        drawObjective()
+    }
+
+    if (state === 'Help') {
+        drawHelp()
     }
 }
 
@@ -75,6 +83,11 @@ function actionUpGame(x, y, button) {
                     loadLevel()
                 } else if (pointInsideRectArray(x, y, UI.game.buttonUndo)) {
                     undo()
+                } else if (pointInsideRectArray(x, y, UI.game.buttonObjective)) {
+                    state = 'Objective'
+                } else if (pointInsideRectArray(x, y, UI.game.buttonHelp)) {
+                    state = 'Help'
+                    game.helpIndex = 0
                 }
 
                 if (picking['Type'] != null) {
@@ -114,6 +127,14 @@ function actionUpGame(x, y, button) {
                 selectedWorld = -1
                 selectedLevel = -1
                 state = ''
+            } else if (state === 'Objective') {
+                if (pointInsideRectArray(x, y, UI.game.objective.close)) {
+                    state = ''
+                }
+            } else if (state === 'Help') {
+                if (pointInsideRectArray(x, y, UI.game.help.close)) {
+                    state = ''
+                }
             }
         } else if (pause === true) {
             if (pointInsideRectArray(x, y, UI.pause.buttonResume)) {

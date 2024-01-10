@@ -22,7 +22,9 @@ let img = {
         tileIce : new Image(),
         bolt : new Image(),
         wall : new Image(),
-    }
+    },
+
+    close : new Image(),
 }
 
 function imageLoad() {
@@ -48,4 +50,6 @@ function imageLoad() {
     img.game.tileIce.src = 'Image/TileIce.png'
     img.game.bolt.src = 'Image/Bolt.png'
     img.game.wall.src = 'Image/Wall.png'
+
+    img.close.src = 'Image/Close.png'
 }

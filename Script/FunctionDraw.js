@@ -79,7 +79,7 @@ function drawGame() {
         for (let j = 0; j < game.level['Board'][i].length; j++) {
             let temp = game.level['Board'][i][j]
             
-            if (temp['Type'] === 'Power' || temp['Type'] === 'PowerUpper' || temp['Type'] === 'PowerLower') {
+            if (temp['Type'] === 'Power' || temp['Type'] === 'PowerUpper' || temp['Type'] === 'PowerLower' || temp['Type'] === 'PowerNum') {
                 for (let k = 0; k < temp['Property'][0].length; k++) {
                     let rayQueue = []
                     if (temp['Property'][0][k] === 'Right') {
@@ -188,6 +188,23 @@ function drawGame() {
 
                 context.fillText(`${temp['Property'][1]}`, game.level['Left'] + tileSize * j + 32, game.level['Top'] + tileSize * i + 24)
                 context.fillText(`<${temp['Property'][2]}`, game.level['Left'] + tileSize * j + 32, game.level['Top'] + tileSize * i + 40)
+            } else if (temp['Type'] === 'PowerNum') {
+                context.drawImage(img.game.tilePower, game.level['Left'] + tileSize * j, game.level['Top'] + tileSize * i)
+                
+                for (let k = 0; k < temp['Property'][0].length; k++) {
+                    if (temp['Property'][0][k] === 'Right') {
+                        context.drawImage(img.game.orbOn, game.level['Left'] + tileSize * j + 48, game.level['Top'] + tileSize * i + 24)
+                    } else if (temp['Property'][0][k] === 'Left') {
+                        context.drawImage(img.game.orbOn, game.level['Left'] + tileSize * j, game.level['Top'] + tileSize * i + 24)
+                    } else if (temp['Property'][0][k] === 'Up') {
+                        context.drawImage(img.game.orbOn, game.level['Left'] + tileSize * j + 24, game.level['Top'] + tileSize * i)
+                    } else if (temp['Property'][0][k] === 'Down') {
+                        context.drawImage(img.game.orbOn, game.level['Left'] + tileSize * j + 24, game.level['Top'] + tileSize * i + 48)
+                    }
+                }
+
+                context.fillText(`N${temp['Property'][1]}`, game.level['Left'] + tileSize * j + 32, game.level['Top'] + tileSize * i + 24)
+                context.fillText(`N${temp['Property'][2]}`, game.level['Left'] + tileSize * j + 32, game.level['Top'] + tileSize * i + 40)
             } else if (temp['Type'] === 'Number') {
                 context.drawImage(img.game.tileEmpty, game.level['Left'] + tileSize * j, game.level['Top'] + tileSize * i)
                 context.fillText(`${temp['Property']}`, game.level['Left'] + tileSize * j + 32, game.level['Top'] + tileSize * i + 32)
@@ -257,6 +274,23 @@ function drawGame() {
 
             context.fillText(`${temp['Property'][1]}`, UI.game.hand[0][0] + tileSize * i + 32, UI.game.hand[0][1] + 24)
             context.fillText(`<${temp['Property'][2]}`, UI.game.hand[0][0] + tileSize * i + 32, UI.game.hand[0][1] + 40)
+        } else if (temp['Type'] === 'PowerNum') {
+            context.drawImage(img.game.tilePower, UI.game.hand[0][0] + tileSize * i, UI.game.hand[0][1])
+            
+            for (let k = 0; k < temp['Property'][0].length; k++) {
+                if (temp['Property'][0][k] === 'Right') {
+                    context.drawImage(img.game.orbOn, UI.game.hand[0][0] + tileSize * i + 48, UI.game.hand[0][1] + 24)
+                } else if (temp['Property'][0][k] === 'Left') {
+                    context.drawImage(img.game.orbOn, UI.game.hand[0][0] + tileSize * i, UI.game.hand[0][1] + 24)
+                } else if (temp['Property'][0][k] === 'Up') {
+                    context.drawImage(img.game.orbOn, UI.game.hand[0][0] + tileSize * i + 24, UI.game.hand[0][1])
+                } else if (temp['Property'][0][k] === 'Down') {
+                    context.drawImage(img.game.orbOn, UI.game.hand[0][0] + tileSize * i + 24, UI.game.hand[0][1] + 48)
+                }
+            }
+
+            context.fillText(`N${temp['Property'][1]}`, UI.game.hand[0][0] + tileSize * i + 32, UI.game.hand[0][1] + 24)
+            context.fillText(`N${temp['Property'][2]}`, UI.game.hand[0][0] + tileSize * i + 32, UI.game.hand[0][1] + 40)
         } else if (temp['Type'] === 'Number') {
             context.drawImage(img.game.tileEmpty, UI.game.hand[0][0] + tileSize * i, UI.game.hand[0][1])
             context.fillText(`${temp['Property']}`, UI.game.hand[0][0] + tileSize * i + 32, UI.game.hand[0][1] + 32)
@@ -303,4 +337,32 @@ function drawPause() {
     context.fillText(`${dataLang['Resume'][langList[lang]]}`, UI.pause.textResume[0], UI.pause.textResume[1])
     context.strokeRect(UI.pause.buttonMap[0], UI.pause.buttonMap[1], UI.pause.buttonMap[2], UI.pause.buttonMap[3])
     context.fillText(`${dataLang['Map'][langList[lang]]}`, UI.pause.textMap[0], UI.pause.textMap[1])
+}
+
+function drawObjective() {
+    context.fillStyle = 'White'
+    context.fillRect(UI.game.objective.rect[0], UI.game.objective.rect[1], UI.game.objective.rect[2], UI.game.objective.rect[3])
+    context.fillStyle = 'Black'
+    context.strokeRect(UI.game.objective.rect[0], UI.game.objective.rect[1], UI.game.objective.rect[2], UI.game.objective.rect[3])
+
+    context.drawImage(img.close, UI.game.objective.close[0], UI.game.objective.close[1])
+
+    context.fillText(`${dataLang['Objective'][langList[lang]]}`, UI.game.objective.textTitle[0], UI.game.objective.textTitle[1])
+    context.font = '16px neodgm'
+    context.textAlign = 'left'
+    for (let i = 0; i < dataLang['Objective1'][langList[lang]].length; i++)
+    context.fillText(`${dataLang['Objective1'][langList[lang]][i]}`, UI.game.objective.text1[0], UI.game.objective.text1[1] + UI.game.objective.lineSpace * i)
+    context.font = '32px neodgm'
+    context.textAlign = 'center'
+}
+
+function drawHelp() {
+    context.fillStyle = 'White'
+    context.fillRect(UI.game.help.rect[0], UI.game.help.rect[1], UI.game.help.rect[2], UI.game.help.rect[3])
+    context.fillStyle = 'Black'
+    context.strokeRect(UI.game.help.rect[0], UI.game.help.rect[1], UI.game.help.rect[2], UI.game.help.rect[3])
+
+    context.drawImage(img.close, UI.game.help.close[0], UI.game.help.close[1])
+
+    context.fillText(`${dataLang['Help'][langList[lang]]}`, UI.game.help.textTitle[0], UI.game.help.textTitle[1])
 }
