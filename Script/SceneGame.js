@@ -134,6 +134,10 @@ function actionUpGame(x, y, button) {
             } else if (state === 'Help') {
                 if (pointInsideRectArray(x, y, UI.game.help.close)) {
                     state = ''
+                } else if (pointInsideRectArray(x, y, UI.game.help.buttonPrev)) {
+                    game.helpIndex = (game.helpIndex + 5) % 6
+                } else if (pointInsideRectArray(x, y, UI.game.help.buttonNext)) {
+                    game.helpIndex = (game.helpIndex + 7) % 6
                 }
             }
         } else if (pause === true) {

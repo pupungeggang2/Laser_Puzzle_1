@@ -36,6 +36,11 @@ const UI = {
             close : [240, 140, 40, 40],
 
             textTitle : [160, 160],
+            image : [40, 180],
+
+            buttonPrev : [40, 420, 40, 40],
+            buttonNext : [240, 420, 40, 40],
+            textIndex : [160, 440],
         },
 
         objective : {

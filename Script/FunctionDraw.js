@@ -365,4 +365,9 @@ function drawHelp() {
     context.drawImage(img.close, UI.game.help.close[0], UI.game.help.close[1])
 
     context.fillText(`${dataLang['Help'][langList[lang]]}`, UI.game.help.textTitle[0], UI.game.help.textTitle[1])
+
+    context.fillText(`${game.helpIndex + 1}/6`, UI.game.help.textIndex[0], UI.game.help.textIndex[1])
+    context.drawImage(img.prev, UI.game.help.buttonPrev[0], UI.game.help.buttonPrev[1])
+    context.drawImage(img.next, UI.game.help.buttonNext[0], UI.game.help.buttonNext[1])
+    context.drawImage(img.help[game.helpIndex], UI.game.help.image[0], UI.game.help.image[1])
 }

@@ -25,6 +25,10 @@ let img = {
     },
 
     close : new Image(),
+    prev : new Image(),
+    next : new Image(),
+
+    help : [new Image(), new Image(), new Image(), new Image(), new Image(), new Image()],
 }
 
 function imageLoad() {
@@ -52,4 +56,14 @@ function imageLoad() {
     img.game.wall.src = 'Image/Wall.png'
 
     img.close.src = 'Image/Close.png'
+
+    img.prev.src = 'Image/Prev.png'
+    img.next.src = 'Image/Next.png'
+
+    img.help[0].src = 'Image/Help1.png'
+    img.help[1].src = 'Image/Help2.png'
+    img.help[2].src = 'Image/Help3.png'
+    img.help[3].src = 'Image/Help4.png'
+    img.help[4].src = 'Image/Help5.png'
+    img.help[5].src = 'Image/Help6.png'
 }
