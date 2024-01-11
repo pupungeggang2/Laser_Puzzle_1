@@ -1,17 +1,21 @@
 # Worlds
 
-Currently planning 7 worlds.
+Currently planning 5 worlds.
 
 0 : Tutorial
 
 1 : World 1
 
+Introduces wall.
+
 2 : World 2
+
+Introduces ice.
 
 3 : World 3
 
+Introduces power num.
+
 4 : World 4
 
-5 : World 5
-
-6 : World 6
+Introduces power greater, power less.
