@@ -1,8 +1,11 @@
 # Number_Puzzle_1
 
 This game is a number puzzle.
+[Play](https://pupungeggang2.itch.io/number-puzzle)
 
 ## How to play
+
+![Image](Resource/MD1.jpg)
 
 1. Look at the board.
 2. Find the laser emitters and number of lasers.
